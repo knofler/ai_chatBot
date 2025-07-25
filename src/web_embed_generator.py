@@ -223,6 +223,223 @@ def index():
                 </div>
             </div>
 
+            <!-- Integration Section -->
+            <div id="integrations" class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold gradient-text mb-2">Powerful Integration Capabilities</h2>
+                        <p class="text-gray-500 text-xl">Connect with your data and favorite platforms</p>
+                    </div>
+
+                    <!-- RAG Section -->
+                    <div class="mb-20">
+                        <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                            <div class="relative">
+                                <div class="relative lg:ml-10">
+                                    <div class="gradient-bg rounded-2xl shadow-xl p-8 text-white">
+                                        <h3 class="text-2xl font-bold mb-4">Retrieval-Augmented Generation (RAG)</h3>
+                                        <p class="mb-6">Enhance your AI responses with your own knowledge base:</p>
+                                        <ul class="space-y-4">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                                <span>Connect to your documents, wikis, and knowledge bases</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                                <span>Automatic content indexing and semantic search</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle mt-1 mr-3"></i>
+                                                <span>Real-time data synchronization</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-10 lg:mt-0 lg:ml-10">
+                                <h4 class="text-xl font-semibold mb-4">Supported Data Sources</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                        <i class="fas fa-file-pdf text-red-500 text-xl mr-3"></i>
+                                        <span>PDF Documents</span>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                        <i class="fab fa-wikipedia-w text-gray-700 text-xl mr-3"></i>
+                                        <span>Wiki Pages</span>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                        <i class="fas fa-database text-blue-500 text-xl mr-3"></i>
+                                        <span>SQL Databases</span>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                        <i class="fas fa-code-branch text-purple-500 text-xl mr-3"></i>
+                                        <span>API Endpoints</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCP Section -->
+                    <div class="mb-20">
+                        <div class="text-center mb-10">
+                            <h3 class="text-2xl font-bold mb-4">Model Context Protocol (MCP) Integration</h3>
+                            <p class="text-gray-600">Standardized communication between AI models and context sources</p>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4">
+                                    <i class="fas fa-plug text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold mb-2">Easy Integration</h4>
+                                <p class="text-gray-600">Connect to any MCP-compatible service with minimal setup</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4">
+                                    <i class="fas fa-shield-alt text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold mb-2">Secure Protocol</h4>
+                                <p class="text-gray-600">Enterprise-grade security for all model interactions</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4">
+                                    <i class="fas fa-expand-arrows-alt text-white text-xl"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold mb-2">Extensible</h4>
+                                <p class="text-gray-600">Add custom context providers and handlers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Agents Section -->
+                    <div>
+                        <div class="text-center mb-10">
+                            <h3 class="text-2xl font-bold mb-4">Multi-Channel Communication</h3>
+                            <p class="text-gray-600">Connect with your users across all major platforms</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                            <!-- Messaging Apps -->
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-mobile-alt text-blue-500 mr-2"></i>
+                                    Messaging Apps
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fab fa-whatsapp text-2xl text-green-500"></i>
+                                        <div>
+                                            <div class="font-medium">WhatsApp</div>
+                                            <div class="text-sm text-gray-500">Business API integration</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fab fa-telegram text-2xl text-blue-500"></i>
+                                        <div>
+                                            <div class="font-medium">Telegram</div>
+                                            <div class="text-sm text-gray-500">Bot API with webhooks</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fab fa-facebook-messenger text-2xl text-blue-400"></i>
+                                        <div>
+                                            <div class="font-medium">Messenger</div>
+                                            <div class="text-sm text-gray-500">Facebook Graph API</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fab fa-discord text-2xl text-indigo-500"></i>
+                                        <div>
+                                            <div class="font-medium">Discord</div>
+                                            <div class="text-sm text-gray-500">Bot & Webhook support</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Business Tools -->
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-briefcase text-purple-500 mr-2"></i>
+                                    Business Tools
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fab fa-slack text-2xl text-purple-500"></i>
+                                        <div>
+                                            <div class="font-medium">Slack</div>
+                                            <div class="text-sm text-gray-500">App & Bot integration</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-envelope text-2xl text-red-500"></i>
+                                        <div>
+                                            <div class="font-medium">Email</div>
+                                            <div class="text-sm text-gray-500">SMTP & API support</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-globe text-2xl text-blue-600"></i>
+                                        <div>
+                                            <div class="font-medium">Web Widget</div>
+                                            <div class="text-sm text-gray-500">Custom embeddable chat</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SMS & Voice -->
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold mb-4 flex items-center">
+                                    <i class="fas fa-comments text-yellow-500 mr-2"></i>
+                                    SMS & Voice
+                                </h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-sms text-2xl text-yellow-500"></i>
+                                        <div>
+                                            <div class="font-medium">SMS</div>
+                                            <div class="text-sm text-gray-500">Two-way messaging</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-phone text-2xl text-green-600"></i>
+                                        <div>
+                                            <div class="font-medium">Twilio</div>
+                                            <div class="text-sm text-gray-500">Voice & SMS gateway</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Integration Features -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <i class="fas fa-sync text-2xl text-blue-500 mb-3"></i>
+                                <h4 class="font-semibold mb-2">Real-time Sync</h4>
+                                <p class="text-sm text-gray-600">Instant message delivery across all platforms</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <i class="fas fa-user-circle text-2xl text-green-500 mb-3"></i>
+                                <h4 class="font-semibold mb-2">Unified Profiles</h4>
+                                <p class="text-sm text-gray-600">Consistent user experience across channels</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <i class="fas fa-chart-line text-2xl text-purple-500 mb-3"></i>
+                                <h4 class="font-semibold mb-2">Analytics</h4>
+                                <p class="text-sm text-gray-600">Track engagement across all platforms</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-sm">
+                                <i class="fas fa-shield-alt text-2xl text-red-500 mb-3"></i>
+                                <h4 class="font-semibold mb-2">Secure</h4>
+                                <p class="text-sm text-gray-600">End-to-end encryption where supported</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Testimonials Section -->
             <div id="testimonials" class="py-16 bg-gray-50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
