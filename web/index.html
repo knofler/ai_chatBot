@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Test Page</title>
+</head>
+<body>
+    <h1>ChatBot Test Page</h1>
+    <p>This is a test page for the chatbot widget. The chat widget should appear in the bottom right corner.</p>
+
+    <!-- ChatBot Widget will be inserted here -->
+    <script>
+        // Replace with your actual server URL
+        const serverUrl = 'http://localhost:5000';
+        
+        // Fetch and inject the widget code
+        fetch(`${serverUrl}/widget`)
+            .then(response => response.text())
+            .then(code => {
+                const script = document.createElement('div');
+                script.innerHTML = code;
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading widget:', error));
+    </script>
+</body>
+</html>

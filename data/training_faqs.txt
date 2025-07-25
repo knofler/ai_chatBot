@@ -1,0 +1,14 @@
+What is this chatbot?
+This is an AI-powered chatbot designed to assist users with questions and provide helpful information.
+
+How can I customize the chatbot?
+You can customize the chatbot by modifying the training data, adjusting the conversation flow, and integrating with your preferred platforms and APIs.
+
+What are the different tiers available?
+There are three tiers: Basic (website integration), Standard (multi-platform & API), and Advanced (full business integration).
+
+How do I integrate the chatbot with my website?
+Simply add the provided JavaScript widget code to your website, and ensure the backend server is running.
+
+Is the conversation secure?
+Yes, all conversations are processed securely using industry-standard encryption and best practices.
