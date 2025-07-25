@@ -670,14 +670,28 @@ def index():
             </button>
 
             <script>
+                function checkLLMConnection() {
+                    return fetch('/check-llm-connection', {
+                        method: 'GET'
+                    })
+                    .then(response => response.json())
+                    .catch(() => ({ connected: false }));
+                }
+
                 function toggleChat() {
                     const chatWidget = document.getElementById('chat-widget');
                     const chatToggleBtn = document.getElementById('chat-toggle-btn');
                     
                     if (chatWidget.classList.contains('translate-y-full')) {
-                        // Show chat
+                        // Show chat and check LLM connection
                         chatWidget.classList.remove('translate-y-full', 'opacity-0');
                         chatToggleBtn.classList.add('hidden');
+                        
+                        checkLLMConnection().then(data => {
+                            if (!data.connected) {
+                                appendMessage("AI service is not available. Please check your connection or contact support to ensure proper API configuration.", false);
+                            }
+                        });
                     } else {
                         // Hide chat
                         chatWidget.classList.add('translate-y-full', 'opacity-0');
