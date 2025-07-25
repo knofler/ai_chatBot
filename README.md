@@ -5,7 +5,7 @@ A modular and scalable AI chatbot solution with tiered functionality, from basic
 ## Project Structure
 
 ```
-upwork_ai_chatbot/
+ai_chatbot/
 ├── src/
 │   ├── chatbot_logic.py      # Core chatbot functionality
 │   ├── data_loader.py        # Data ingestion and preparation

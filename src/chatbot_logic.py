@@ -12,16 +12,21 @@ load_dotenv(os.path.join(os.path.dirname(__file__), '../config/.env'))
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 class Chatbot:
-    def __init__(self):
+    def __init__(self, lazy_load=False, use_defaults=False):
         self.conversation_steps = 0
-        self.data_loader = DataLoader(os.path.join(os.path.dirname(__file__), '../data'))
-        self.data_loader.load_faqs()
-        self.data_loader.load_training_data()
         self.conversation_history = []
+        self.data_loader = None
+        self._data_initialized = False
+        if not lazy_load:
+            self.initialize_data_loader(use_defaults)
 
     def _create_prompt(self, user_input):
         """Create the prompt for the OpenAI API"""
-        context = self.data_loader.get_context()
+        # Ensure data is loaded before creating prompt
+        if not self._data_initialized:
+            self.initialize_data_loader()
+        
+        context = self.data_loader.get_context() if self.data_loader else ""
         
         # Build conversation history
         conv_history = ""
@@ -31,6 +36,32 @@ class Chatbot:
         # Combine all parts
         prompt = f"{config.DEFAULT_SYSTEM_PROMPT}\n\nContext:\n{context}\n\nConversation History:\n{conv_history}\nUser: {user_input}\nAssistant:"
         return prompt
+
+    def initialize_data_loader(self, use_defaults=False):
+        """Initialize or reinitialize the data loader"""
+        try:
+            data_path = os.path.join(os.path.dirname(__file__), '../data')
+            self.data_loader = DataLoader(data_path, use_defaults=use_defaults)
+            self._data_initialized = True
+        except Exception as e:
+            print(f"Warning: Data loader initialization failed: {e}")
+            if use_defaults:
+                self.data_loader = DataLoader(data_path, use_defaults=True)
+                self._data_initialized = True
+            else:
+                raise
+
+    def reload_training_data(self):
+        """Reload training data and FAQs"""
+        try:
+            if not self.data_loader:
+                self.initialize_data_loader()
+            self.data_loader.load_training_data()
+            self.data_loader.load_faqs()
+            return True
+        except Exception as e:
+            print(f"Warning: Failed to reload training data: {e}")
+            return False
 
     async def get_response(self, user_input):
         """Get a response from the chatbot"""
