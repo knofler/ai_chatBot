@@ -55,38 +55,117 @@ def index():
         <!DOCTYPE html>
         <html>
         <head>
-            <title>AI Chatbot</title>
+            <title>AI Assistant - Your Intelligent Chat Partner</title>
             <script src="https://cdn.tailwindcss.com"></script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
         </head>
-        <body class="bg-gray-100 min-h-screen py-8">
-            <div class="max-w-4xl mx-auto px-4">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="p-6">
-                        <h1 class="text-3xl font-bold text-gray-800 mb-4">AI Chatbot</h1>
-                        <div class="border rounded-lg">
-                            <div class="bg-blue-600 text-white px-4 py-3">
-                                <h2 class="text-lg font-semibold">Chat with AI</h2>
+        <body class="bg-gray-50">
+            <!-- Hero Section -->
+            <div class="min-h-screen">
+                <nav class="bg-white shadow-sm">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-between h-16">
+                            <div class="flex items-center">
+                                <span class="text-2xl font-bold text-blue-600">AI Assistant</span>
                             </div>
-                            <div id="chat-messages" class="h-[400px] p-4 overflow-y-auto space-y-4"></div>
-                            <div class="border-t p-4 flex gap-4">
-                                <input type="text" id="message-input" 
-                                    class="flex-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                                    placeholder="Type your message...">
-                                <button onclick="sendMessage()" 
-                                    class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                    Send
+                            <div class="flex items-center space-x-4">
+                                <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+                                <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+                                <button onclick="toggleChat()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                    Start Chat
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                        <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                                Your Intelligent
+                                <span class="text-blue-600">Chat Assistant</span>
+                            </h1>
+                            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                                Experience the power of AI-driven conversations. Our intelligent chat assistant is here to help you with any questions, tasks, or discussions you might have.
+                            </p>
+                            <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left">
+                                <button onclick="toggleChat()" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                                    Start Chatting Now
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                            <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                                <img class="w-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80" alt="AI Chat">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Chat Widget (Hidden by default) -->
+            <div id="chat-widget" class="fixed bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl transition-all duration-300 transform translate-y-full opacity-0">
+                <div class="bg-blue-600 text-white px-4 py-3 rounded-t-lg flex justify-between items-center">
+                    <h2 class="text-lg font-semibold">Chat with AI</h2>
+                    <button onclick="toggleChat()" class="text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="h-96 p-4 overflow-y-auto space-y-4"></div>
+                <div class="border-t p-4">
+                    <div class="flex gap-2">
+                        <input type="text" id="message-input" 
+                            class="flex-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Type your message...">
+                        <button onclick="sendMessage()" 
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Toggle Button (Fixed) -->
+            <button id="chat-toggle-btn" onclick="toggleChat()" 
+                class="fixed bottom-4 right-4 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 flex items-center justify-center">
+                <i class="fas fa-comments text-xl"></i>
+            </button>
+
             <script>
+                function toggleChat() {
+                    const chatWidget = document.getElementById('chat-widget');
+                    const chatToggleBtn = document.getElementById('chat-toggle-btn');
+                    
+                    if (chatWidget.classList.contains('translate-y-full')) {
+                        // Show chat
+                        chatWidget.classList.remove('translate-y-full', 'opacity-0');
+                        chatToggleBtn.classList.add('hidden');
+                    } else {
+                        // Hide chat
+                        chatWidget.classList.add('translate-y-full', 'opacity-0');
+                        chatToggleBtn.classList.remove('hidden');
+                    }
+                }
+
                 function appendMessage(message, isUser) {
                     const div = document.createElement('div');
-                    div.className = `p-4 rounded-lg ${isUser ? 'bg-blue-50 ml-auto' : 'bg-gray-50'} max-w-[80%]`;
-                    div.textContent = message;
+                    div.className = `p-3 rounded-lg ${isUser ? 'bg-blue-50 ml-auto text-blue-900' : 'bg-gray-50'} max-w-[80%] shadow-sm`;
+                    
+                    const textDiv = document.createElement('div');
+                    textDiv.className = 'flex items-start gap-2';
+                    
+                    const icon = document.createElement('i');
+                    icon.className = isUser ? 'fas fa-user text-blue-600 mt-1' : 'fas fa-robot text-gray-600 mt-1';
+                    
+                    const messageText = document.createElement('div');
+                    messageText.textContent = message;
+                    
+                    textDiv.appendChild(icon);
+                    textDiv.appendChild(messageText);
+                    div.appendChild(textDiv);
+                    
                     document.getElementById('chat-messages').appendChild(div);
                     div.scrollIntoView({ behavior: 'smooth' });
                 }
